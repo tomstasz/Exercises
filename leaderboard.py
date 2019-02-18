@@ -1,15 +1,11 @@
 def climbing_leaderboard(scores, alice):
     scores = list(set(scores))
     scores.sort(reverse=True)
-    ranking = [scores[0]]
-    for score in scores[1:]:
-        if score < ranking[-1]:
-            ranking.append(score)
     res = list()
     for a_score in alice:
-        while ranking and a_score >= ranking[-1]:
-            ranking.pop()
-        res.append(len(ranking) + 1)
+        while scores and a_score >= scores[-1]:
+            scores.pop()
+        res.append(len(scores) + 1)
     return res
 
 
